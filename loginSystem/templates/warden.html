@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="top"><header>Warden Login</header></div>
+  <form action="/warden" method="post" class="container">
+    {% csrf_token %}
+    <div class="input-field">
+      <input type="text" class="input" placeholder="Username" name="username" />
+      <i class="bx bx-user"></i>
+    </div>
+    <div class="input-field">
+      <input
+        type="Password"
+        class="input"
+        placeholder="Password"
+        name="password"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+    <div class="input-field">
+      <input type="submit" class="submit" value="Login" id="" />
+    </div>
+    <div class="two-col">
+      <div class="one">
+        <input type="checkbox" name="" id="check" />
+        <label for="check"> Remember Me</label>
+      </div>
+      <div class="two">
+        <label><a href="#">Forgot password?</a></label>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

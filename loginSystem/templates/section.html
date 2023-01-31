@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="boxicons-master/css/boxicons.css" />
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      .submit {
+        margin-bottom: 2rem;
+        height: 6rem;
+        font-size: 1.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container">
+        <div class="input-field">
+          <a href="student">
+            <input type="submit" class="submit" value=" Student" id=""
+          /></a>
+          <a href="warden">
+            <input type="submit" class="submit" value=" Warden" id=""
+          /></a>
+          <a href="security"
+            ><input
+              type="submit"
+              class="submit"
+              value=" Security officer"
+              id=""
+          /></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

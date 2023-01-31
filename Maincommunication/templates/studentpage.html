@@ -1,0 +1,301 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  .container {
+    background-color: black;
+    border-radius: 15px;
+    opacity: 0.85;
+    padding: 5px;
+    z-index: 100;
+    width: 800px;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-bottom: 10px;
+  }
+  form {
+    padding: 15px;
+  }
+  .input1 {
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.081);
+    z-index: 20;
+    opacity: 1.2;
+    color: aliceblue;
+    width: 200px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input-field {
+    margin: auto;
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .input {
+    max-width: 200px;
+    margin-left: 25px;
+  }
+  .submit1 {
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: 0.3s;
+    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+    display: inline;
+    padding-top: 15px;
+    padding-left: 17px;
+    line-height: 2;
+    position: relative;
+    right: 50px;
+    font-size: 12px;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+  .navigation {
+    width: 8%;
+    background-color: black;
+    position: absolute;
+    right: 0px;
+    top: -20px;
+    height: 64px;
+  }
+
+  img {
+    width: 25px;
+    border-radius: 50px;
+    float: left;
+  }
+
+  .logout {
+    font-size: 0.8em;
+    font-family: "Oswald", sans-serif;
+    position: relative;
+    right: -18px;
+    bottom: -4px;
+    overflow: hidden;
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity 0.45s;
+    -webkit-transition: opacity 0.35s;
+  }
+
+  .button {
+    text-decoration: none;
+    float: right;
+    padding: 12px;
+    margin: 15px;
+    color: white;
+    width: 25px;
+    background-color: black;
+    transition: width 0.35s;
+    -webkit-transition: width 0.35s;
+    overflow: hidden;
+  }
+
+  a:hover {
+    width: 100px;
+  }
+
+  a:hover .logout {
+    opacity: 0.9;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  .box {
+    flex-direction: column;
+  }
+  .btn {
+    text-align: center;
+    margin-top: 2px;
+    padding: 2px;
+    position: relative;
+    left: 446px;
+    top: -47px;
+  }
+  .accept {
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1a1a1a;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    width: 20px;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 30%;
+    will-change: transform;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  .accept:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+</style>
+<div class="navigation">
+  <a class="button" href="{% url 'logout_user' %}">
+    <img
+      src="https://pbs.twimg.com/profile_images/378800000639740507/fc0aaad744734cd1dbc8aeb3d51f8729_400x400.jpeg"
+    />
+
+    <div class="logout">LOGOUT</div>
+  </a>
+</div>
+<div class="container">
+  <form action="studentView" method="post" id="basic">
+    {% csrf_token %}
+    <div class="input-field">
+      <label for="name0" class="input1">Student Name :</label>
+      <input
+        type="text"
+        class="input"
+        id="name0"
+        placeholder="Username"
+        name="username"
+      />
+      <i class="bx bx-user"></i>
+    </div>
+    <div class="input-field">
+      <label for="roll0" class="input1">Roll_NO :</label>
+      <input
+        type="text"
+        id="roll0"
+        class="input"
+        placeholder="Roll_NO"
+        name="roll"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+
+    <div class="input-field">
+      <label for="phone0" class="input1">Phone_No :</label>
+      <input
+        type="text"
+        id="phone0"
+        class="input"
+        placeholder="Phone_No"
+        name="phone_no"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+
+    <div class="input-field">
+      <label for="hostel0" class="input1">Hostel Name :</label>
+      <input
+        type="text"
+        class="input"
+        id="hostel0"
+        placeholder="Hostel Name"
+        name="Hostel"
+      />
+      <i class="bx bx-user"></i>
+    </div>
+    <div class="input-field">
+      <label for="reason0" class="input1">Reason :</label>
+      <textarea
+        class="input"
+        name="Reason"
+        id="reason0"
+        cols="100"
+        rows="100"
+        form="basic"
+        style="align-items: center;"
+      >
+Enter Reason here</textarea
+      >
+      <i class="bx bx-lock-alt"></i>
+    </div>
+    <div class="input-field">
+      <label for="date0" class="input1">Date :</label>
+      <input
+        type="text"
+        id="date0"
+        class="input"
+        placeholder="date"
+        name="date"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+    <div class="input-field">
+      <label for="time0" class="input1">Time-out :</label>
+      <input
+        type="text"
+        id="time0"
+        class="input"
+        placeholder="Time-out"
+        name="time"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+    <div class="input-field">
+      <label for="duration0" class="input1">Duration :</label>
+      <input
+        type="text"
+        class="input"
+        placeholder="Time you will be out(hrs)"
+        id="duration0"
+        name="duration"
+      />
+      <i class="bx bx-lock-alt"></i>
+    </div>
+    <div class="input-field">
+      <input type="submit" class="submit" value="Send" id="" />
+    </div>
+  </form>
+</div>
+
+<div class="container" style="padding-top: 20px;">
+  {% for item1 in content%}
+  <div class="input-field">
+    <label class="submit1" style="width: 550px;">
+      NAME-> {{ item1.username }} Reason->{{item1.Reason}}
+      date->{{item1.date}} time->{{item1.time}}
+      status->{{item1.status}}
+
+      <div class="btn" style="width: 350px;">
+        <a href="{% url 'delete1' item1.roll%}">
+          <button
+            name="enquiry"
+            value="delete_{{item1.roll}}"
+            class="accept"
+            id="{{item1.roll}}"
+          >
+            delete
+          </button></a
+        >
+    </label>
+    
+      >
+    </div>
+  </div>
+</div>
+
+{% endfor %} {% endblock %}
